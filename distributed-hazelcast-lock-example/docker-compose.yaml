@@ -1,0 +1,45 @@
+version: "3.6"
+
+services:
+  management-center:
+    container_name: management-center
+    image: hazelcast/management-center:3.12.9
+    ports:
+      - 8080:8080
+
+  hazelcast1:
+    container_name: hazelcast1
+    image: hazelcast/hazelcast:3.12.7
+    depends_on:
+      - management-center
+    ports:
+      - 5701:5701
+    volumes:
+      - ./hazelcast.xml:/opt/hazelcast/config_ext/hazelcast.xml
+    environment:
+      - JAVA_OPTS=-Dhazelcast.config=/opt/hazelcast/config_ext/hazelcast.xml -Dhazelcast.local.publicAddress=172.24.202.121:5701 -Dhazelcast.rest.enabled=true -Xms128M -Xmx512M
+
+  hazelcast2:
+    container_name: hazelcast2
+    image: hazelcast/hazelcast:3.12.7
+    depends_on:
+      - management-center
+    ports:
+      - 5702:5701
+    volumes:
+      - ./hazelcast.xml:/opt/hazelcast/config_ext/hazelcast.xml
+    environment:
+      - JAVA_OPTS=-Dhazelcast.config=/opt/hazelcast/config_ext/hazelcast.xml -Dhazelcast.local.publicAddress=172.24.202.121:5702 -Dhazelcast.rest.enabled=true -Xms128M -Xmx512M
+
+  hazelcast3:
+    container_name: hazelcast3
+    image: hazelcast/hazelcast:3.12.7
+    depends_on:
+      - management-center
+    ports:
+      - 5703:5701
+    volumes:
+      - ./hazelcast.xml:/opt/hazelcast/config_ext/hazelcast.xml
+    environment:
+      - JAVA_OPTS=-Dhazelcast.config=/opt/hazelcast/config_ext/hazelcast.xml -Dhazelcast.local.publicAddress=172.24.202.121:5703 -Dhazelcast.rest.enabled=true -Xms128M -Xmx512M
+

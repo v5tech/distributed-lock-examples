@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hazelcast xmlns="http://www.hazelcast.com/schema/config"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.hazelcast.com/schema/config
+           http://www.hazelcast.com/schema/config/hazelcast-config-3.12.xsd">
+
+    <group>
+        <name>dev</name>
+        <password>dev-pass</password>
+    </group>
+
+    <!-- hazelcast管理中心 -->
+    <management-center enabled="true" scripting-enabled="false" update-interval="2">http://172.24.202.121:8080/hazelcast-mancenter</management-center>
+
+    <!-- 开启cp-subsystem -->
+    <cp-subsystem>
+        <cp-member-count>3</cp-member-count>
+    </cp-subsystem>
+
+</hazelcast>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.7.RELEASE</version>
+		<relativePath/>
+	</parent>
+	<groupId>net.ameizi</groupId>
+	<artifactId>distributed-lock-examples</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0</version>
+	<name>distributed-lock-examples</name>
+	<description>Demo project for Spring Boot</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<modules>
+		<module>distributed-redis-lock-example</module>
+		<module>distributed-zookeeper-lock-example</module>
+		<module>distributed-consul-lock-example</module>
+		<module>distributed-hazelcast-lock-example</module>
+		<module>spring-integration-distributed-lock-examples</module>
+	</modules>
+
+</project>
